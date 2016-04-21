@@ -1,0 +1,6 @@
+---
+sshguard_pkgs:
+  - sshguard
+sshguard_sysconfig_path: '/etc/sysconfig/sshguard'
+sshguard_whitelist_path: '/etc/sshguard/whitelist'
+sshguard_service: 'sshguard'

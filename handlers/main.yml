@@ -1,0 +1,6 @@
+---
+
+- name: restart sshguard
+  service:
+    name: "{{ sshguard_service }}"
+    state: restarted

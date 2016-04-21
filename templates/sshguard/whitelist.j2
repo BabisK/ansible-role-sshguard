@@ -1,0 +1,10 @@
+# Sshguard Whitelist
+#
+# See the WHITELISTING section in SSHGUARD(8) for more details.
+
+{% for addr in sshguard_whitelist %}
+{%   if addr.comment is defined %}
+# {{ addr.comment }}
+{%   endif %}
+{{ addr.value }}
+{% endfor %}

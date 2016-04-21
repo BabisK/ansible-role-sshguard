@@ -1,0 +1,31 @@
+---
+# tasks file for sshguard
+- name: Install sshguard packages
+  yum:
+    name: "{{ item }}"
+    state: "{{ sshguard_pkgs_state }}"
+  with_items: "{{ sshguard_pkgs }}"
+
+- name: Create {{ sshguard_sysconfig_path }} from template
+  template:
+    src: "sysconfig/sshguard.j2"
+    dest: "{{ sshguard_sysconfig_path }}"
+    owner: root
+    group: root
+    mode: '0600'
+  notify: restart sshguard
+
+- name: Create {{ sshguard_whitelist_path }} from template
+  template:
+    src: "sshguard/whitelist.j2"
+    dest: "{{ sshguard_whitelist_path }}"
+    owner: root
+    group: root
+    mode: '0600'
+  notify: restart sshguard
+
+- name: Ensure sshguard is started and enabled on boot
+  service:
+    name: "{{ sshguard_service }}"
+    state: "{{ sshguard_service_state }}"
+    enabled: "{{ sshguard_service_enabled }}"
