@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Ben Allen
+  description: Ansible role to install and manage sshguard
+  company: Agronne National Laboratory
+  issue_tracker_url: https://gitlab.alcf.anl.gov/jlse/ansible-role-sshguard/issues
+  license: BSD
+  min_ansible_version: 2.0
+  platforms:
+  - name: EL
+    versions:
+    - 7
+  galaxy_tags:
+    - system
+    - firewall
+    - ssh
+
+dependencies: []
