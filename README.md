@@ -30,7 +30,7 @@ Role Variables
 Dependencies
 ------------
 
-Using the RPM created from the spec here: https://gitlab.alcf.anl.gov/jlse/rpm-sshguard
+Using the RPM created from the spec here: https://github.com/bensallen/rpm-sshguard
 
 Example Playbook
 ----------------
@@ -47,4 +47,4 @@ BSD
 Author Information
 ------------------
 
-Ben Allen <bsallen@alcf.anl.gov>
+Ben Allen
