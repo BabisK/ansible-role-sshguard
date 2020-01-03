@@ -39,6 +39,11 @@ Example Playbook
       roles:
          - { role: sshguard }
 
+Run Tests
+---------
+
+`ansible-playbook -i ./tests/inventory --become ./tests/test.yml`
+
 License
 -------
 

@@ -10,9 +10,15 @@
 
 - name: Install sshguard packages
   yum:
-    name: "{{ item }}"
+    name: "{{ sshguard_pkgs }}"
     state: "{{ sshguard_pkgs_state }}"
-  with_items: "{{ sshguard_pkgs }}"
+  when: ansible_pkg_mgr == "yum"
+
+- name: Install sshguard packages
+  apt:
+    name: "{{ sshguard_pkgs }}"
+    state: "{{ sshguard_pkgs_state }}"
+  when: ansible_pkg_mgr == "apt"
 
 - name: Create {{ sshguard_sysconfig_path }} from template
   template:
@@ -21,6 +27,7 @@
     owner: root
     group: root
     mode: '0600'
+  when: ansible_pkg_mgr == "yum"
   notify: restart sshguard
 
 - name: Create {{ sshguard_whitelist_path }} from template

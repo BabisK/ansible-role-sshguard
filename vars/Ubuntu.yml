@@ -1,0 +1,6 @@
+---
+sshguard_pkgs:
+  - sshguard
+sshguard_pkgs_state: 'present'
+sshguard_whitelist_path: '/etc/sshguard/whitelist'
+sshguard_service: 'sshguard'
